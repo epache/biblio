@@ -15,6 +15,7 @@ public class Autor {
     private String nombre;
     private String DNI;
     private String prueba;
+    private String prueba2;
 
     public Autor() {
     }
