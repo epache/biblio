@@ -1,4 +1,3 @@
-
 package mari.egg.biblio.entidades;
 
 import javax.persistence.Entity;
@@ -8,12 +7,13 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Autor {
-    
+
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid", strategy="uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
+    private String DNI;
 
     public Autor() {
     }
@@ -38,9 +38,5 @@ public class Autor {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    //haciendo pruebas de github//
-    
-    
-    
+
 }
