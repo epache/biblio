@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Autor Formulario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <h1>LISTA DE AUTORES</h1>
+        <div class="container">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col" sec:authorize="hasRole('ADMIN')" >MODIFICAR</th>
+                    </tr>
+                </thead>
+                <tbody th:each="autor : ${autores}">
+                    <tr>
+                        <th scope="row" th:text="${autor.id}"></th>
+                        <td th:text="${autor.nombre}"></td>
+                        <td>
+                            <a sec:authorize="hasRole('ADMIN')" th:href="@{/autor/modificar/__${autor.id}__}"><i class="fas fa-feather-alt"></i>MODIFICAR</a>
+                        </td>
+                    </tr>          
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/">PANEL ADMINISTRADORES </a>
+<!---para el sec usar dos PUNTOS!!! SE PUEDE INGRESAR A LOS DATOS DEL USARIO CON session.usuariosession  -->
+                <a class="nav-link" href="/autor/lista">LISTA DE AUTORES</a>
+                <a class="nav-link" href="/libro/lista">LISTA DE LIBROS</a>
+                <a class="nav-link" th:if="${session.usuariosession != null}" sec:authorize="hasRole('ADMIN')" href="/autor/registrar" > REGISTRO AUTOR!</a> 
+                <a class="nav-link" th:if="${session.usuariosession != null}" sec:authorize="hasRole('ADMIN')" href="/libro/registrar" > REGISTRO LIBRO!</a>
+                <a class="nav-link" th:if="${session.usuariosession != null}" sec:authorize="hasRole('ADMIN')" href="/editorial/registrar" > REGISTRO EDITORIAL!</a>
+                
+                 <a class="nav-link" th:if="${session.usuariosession != null}"  th:href="@{/perfil}" > EDITAR PERFIL!</a>
+                 
+                <a class="nav-link" th:if="${session.usuariosession == null}" href="/registrar" >REGISTRO DE USUARIO!</a>
+                <a class="nav-link" th:if="${session.usuariosession == null}" href="/login" >LOGIN</a>
+                <a class="nav-link" href="/logout">CERRAR SESION</a> 
+            </div>
+        </div>
+    </div>
+</nav>
